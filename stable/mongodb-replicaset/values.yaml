@@ -10,6 +10,17 @@ auth:
   # existingKeySecret:
   # existingAdminSecret:
 
+metrics:
+  enabled: false
+  image: reactioncommerce/mongodb_exporter
+  imagePullPolicy: IfNotPresent
+  imageTag: latest
+  port: 9001
+  resources: {}
+  serviceLabels: {}
+  env:
+    MONGODB_URL: mongodb://127.0.0.1:27017
+
 # Specs for the Docker image for the init container that establishes the replica set
 installImage:
   name: gcr.io/google_containers/mongodb-install

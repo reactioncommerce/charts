@@ -82,6 +82,17 @@ spec:
               readOnly: true
           {{- end }}
       containers:
+{{- if .Values.metrics.enabled }}
+        - name: metrics
+          image: "{{ .Values.metrics.image }}:{{ .Values.metrics.imageTag }}"
+          imagePullPolicy: "{{ .Values.metrics.imagePullPolicy }}"
+          ports:
+            - name: metrics
+              containerPort: {{ .Values.metrics.port }}
+          env:
+            - name: MONGODB_URL
+              value: {{ .Values.metrics.env.MONGODB_URL }}
+{{- end }}
         - name: {{ template "mongodb-replicaset.name" . }}
           image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
           imagePullPolicy: "{{ .Values.image.pullPolicy }}"
