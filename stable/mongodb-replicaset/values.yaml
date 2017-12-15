@@ -14,7 +14,7 @@ metrics:
   enabled: false
   image: reactioncommerce/mongodb_exporter
   imagePullPolicy: IfNotPresent
-  imageTag: latest
+  imageTag: v1.1.0
   port: 9001
   serviceLabels: {}
   env:
