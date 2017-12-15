@@ -39,6 +39,13 @@ The following tables lists the configurable parameters of the mongodb chart and 
 | `image.name`                    | MongoDB image name                                                        | mongo                                               |
 | `image.tag`                     | MongoDB image tag                                                         | 3.4                                                 |
 | `image.pullPolicy`              | MongoDB image pull policy                                                 | IfNotPresent                                        |
+| `metrics.enabled`               | If `true`, Prometheus metrics exporter is enabled                         | `false`                                             |
+| `metrics.image`                 | Image name for the metrics exporter container                             | reactioncommerce/mongdb_exporter                    |
+| `metrics.imageTag`              | Image tag for the metrics exporter container                              | v1.1.0                                              |
+| `metrics.imagePullPolicy`       | Image pull policy for the metrics exporter container                      | IfNotPresent                                        |
+| `metrics.port`                  | Metrics port                                                              | 9001                                                |
+| `metrics.serviceLabels`         | Additional labels applied if metrics enabled is `true`                    | {}                                                  |
+| `metrics.env.MONGODB_URL`       | Custom metrics MongoDB URL, provided to customize connection params       | mongodb://127.0.0.1:27017                           |
 | `podAnnotations`                | Annotations to be added to MongoDB pods                                   | {}                                                  |
 | `resources`                     | Pod resource requests and limits                                          | {}                                                  |
 | `persistentVolume.enabled`      | If `true`, persistent volume claims are created                           | `true`                                              |

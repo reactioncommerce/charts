@@ -16,7 +16,6 @@ metrics:
   imagePullPolicy: IfNotPresent
   imageTag: latest
   port: 9001
-  resources: {}
   serviceLabels: {}
   env:
     MONGODB_URL: mongodb://127.0.0.1:27017
