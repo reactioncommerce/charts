@@ -295,3 +295,11 @@ connecting to: mongodb://127.0.0.1:27017
 ### Scaling
 
 Scaling should be managed by `helm upgrade`, which is the recommended way.
+
+## Metrics
+The chart optionally can start a metrics exporter for [prometheus](https://prometheus.io).
+The metrics endpoint (port 9001) is exposed in the service. Metrics can be
+scraped from within the cluster using something similar as the described in the
+[example Prometheus scrape configuration](https://github.com/prometheus/prometheus/blob/master/documentation/examples/prometheus-kubernetes.yml).
+Custom labels may be applied using the `metrics.serviceLabels` value for monitoring
+with [Prometheus-Operator](https://github.com/coreos/prometheus-operator).
